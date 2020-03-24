@@ -112,6 +112,5 @@ venv.bak/
 
 /executables/
 
-/data/
+.DS_Store
 
-.DS_store
