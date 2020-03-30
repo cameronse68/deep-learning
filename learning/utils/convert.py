@@ -4,15 +4,17 @@ import logging
 logger = logging.getLogger(__name__)
 logger.addHandler(logging.NullHandler())
 
+#TODO add documentation 
 
 def vectorize_string(s):
-    unique=(set(s))
+    unique=sorted((set(s)))
+    idx2char=np.array(unique)
     char2num={u:i for i, u in enumerate(unique)}
     new=[]
     for char in range(len(s)):
         new.append(char2num[s[char]])
     new=np.array(new)
-    return new
+    return new, idx2char
 
 def get_batch(vectorized_string,seq_length,batch_size):
     n=vectorized_string.shape[0]-1
